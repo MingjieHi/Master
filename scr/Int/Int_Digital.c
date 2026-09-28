@@ -4,7 +4,7 @@
  u8 s_digitaltube_numcode[8];//用于存储显示的8个数码管的段点位bit值
 static u8 temp_numcode[8];//用于存储显示的8个数码管的段点位bit值
 static u8 s_digital_numcode[16] = {//数码管的段点位值对应表
-    0x3f, // 0011 1111  #1
+    0x3f, // 0011 1111  #1 0100 0000
     0x06,
     0x5b,
     0x4f,
@@ -14,6 +14,7 @@ static u8 s_digital_numcode[16] = {//数码管的段点位值对应表
     0x07,
     0x7f,
     0x6f,
+    0x40;
     0x77,
     0x7c,
     0x39,
@@ -42,7 +43,6 @@ u8 * Int_DigitalTube_GetDesplayNumCode(u32 number)
     {
         s_digitaltube_numcode[i] = 0x00;
     }
-
     // 循环取出数字，从个位数开始，从最右侧开始村。i=7
     if (number == 0)
     {
@@ -57,6 +57,46 @@ u8 * Int_DigitalTube_GetDesplayNumCode(u32 number)
     }
     return s_digitaltube_numcode;
 }
+
+
+
+
+u8 * Int_DigitalTube_GetDesplaNegtiveNumCode(long long number)
+{ // 4294967295
+    u8 i = 7;
+    u8 j = 0;
+    // 数码管初始化，全部不显示,所有段都是低电平
+    for (j = 0; j < 7; j++)
+    {
+        s_digitaltube_numcode[i] = 0x00;
+    }
+    if(number < 0){
+        number = abs(number)
+         while (number > 0)
+    {
+        s_digitaltube_numcode[i] = s_digital_numcode[number% 10];
+        number = number/ 10;
+        i--;
+    }
+    s_digitaltube_numcode[i] = s_digital_numcode[10]
+    }
+    // 循环取出数字，从个位数开始，从最右侧开始村。i=7
+    if (number == 0)
+    {
+        s_digitaltube_numcode[7] = s_digital_numcode[0];
+    }
+    
+    while (number > 0)
+    {
+        s_digitaltube_numcode[i] = s_digital_numcode[number% 10];
+        number = number / 10;
+        i--;
+    }
+    return s_digitaltube_numcode;
+}
+
+
+
 
 
 u8 * Int_DigitalTube_DisplayAllNums(u32 All_Numbers){
