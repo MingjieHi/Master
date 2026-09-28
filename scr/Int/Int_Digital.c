@@ -33,7 +33,7 @@ void Int_DigitalTube_DisplaySingleNum(u8 pos, u8 numbercode)
 
 // 显示某个数字 0000 0000
 //             8765 4321
-u8 * Int_DigitalTube_GetSingleNum(u32 number)
+u8 * Int_DigitalTube_GetDesplayNumCode(u32 number)
 { // 4294967295
     u8 i = 7;
     u8 j = 0;
@@ -62,7 +62,7 @@ u8 * Int_DigitalTube_GetSingleNum(u32 number)
 u8 * Int_DigitalTube_DisplayAllNums(u32 All_Numbers){
     u8 *p; 
     u8 i = 0;
-    p = Int_DigitalTube_GetSingleNum(All_Numbers);
+    p = Int_DigitalTube_GetDesplayNumCode(All_Numbers);
     while (1)
     {
         for (i = 0; i < 7; i++)
@@ -72,14 +72,11 @@ u8 * Int_DigitalTube_DisplayAllNums(u32 All_Numbers){
             }
         }
     }
-    return p;
 }
 
 
 
-
-
-u8 Int_InitialTube(){
+void Int_InitialTube(){
         u8 j = 0;
     // 数码管初始化，全部不显示,所有段都是低电平
     for (j = 0; j < 7; j++)

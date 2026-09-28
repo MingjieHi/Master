@@ -22,19 +22,19 @@ void main()
         // Key = Int_KeyMatrix_CheckKeyIsPreesed();
         // Int_DigitalTube_DisplayAllNums(Key);
 
-        // if (Int_Key_IsSW1Pressed == 1)
+        // if (Int_Key_IsSW1Pressed() == 1)
         // {
         //     LED1 = ~LED1
         // }
-        // if (Int_Key_IsSW2Pressed == 1)
+        // if (Int_Key_IsSW2Pressed() == 1)
         // {
         //     LED2 = ~LED2
         // }
-        // if (Int_Key_IsSW3Pressed == 1)
+        // if (Int_Key_IsSW3Pressed() == 1)
         // {
         //     LED3 = ~LED4
         // }
-        // if (Int_Key_IsSW4Pressed == 1)
+        // if (Int_Key_IsSW4Pressed() == 1)
         // {
         //     LED4 = ~LED4
         // }
