@@ -6,16 +6,17 @@ u8 Int_KeyMatrix_CheckKeyIsPreesed()
     // P10-P17
     // row: 17 16 15 14
     // cols: 13 12 11 10
+    u8 rows;
     static u8 s_pressed_button[4][4] = { 1,2,3,4,
                                 5,6,7,8,
                                 9,10,11,12,
                                 13,14,15,16};
     // 0111 1111 0111 1111 > 1 0011 1111 | 1000 0000 > 1 0101 1111 | 1000 0000
-    static u8 s_rowsP1x[4] = {0x7f,0xbf,0xcf,0xdf}
+    static u8 s_rowsP1x[4] = {0x7f,0xbf,0xcf,0xdf};
     P1 = 0x7f;
     for (rows = 0; rows < 4; rows++)
     {
-            P1 = s_rowsP1x[i];
+            P1 = s_rowsP1x[rows];
             // 扫描cols是否被按下
             if (SWx1 == 0)
             {

@@ -13,7 +13,7 @@ void main()
     {
 
 
-    App_Binprocess()
+    App_Binprocess();}
 
 
 
@@ -42,5 +42,4 @@ void main()
         // Int_LED_OrderOnOff();
         // Int_Led_Flow();
         // Int_DigitalTube_DisplayAllNums(2256);
-    }
 }
