@@ -12,8 +12,8 @@ void main()
     while (1)
     {
 
-
-    App_Binprocess();}
+    App_CalNumTube();}
+    // App_Binprocess();}
 
 
 
