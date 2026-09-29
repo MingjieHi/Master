@@ -10,6 +10,7 @@
 void main()
 {
     u8 key = 0;
+    u8 temp = 0;
     while (1)
     {
 
@@ -17,7 +18,10 @@ void main()
     // App_Binprocess();
     
 
-        key = Int_KeyMatrix_CheckKeyIsPreesed();
+        temp = Int_KeyMatrix_CheckKeyIsPreesed();
+        if (temp != 0){
+            key = temp;
+        }
         Int_DigitalTube_DisplayAllNums(key);
         // Com_Delay_1ms(100);
 
