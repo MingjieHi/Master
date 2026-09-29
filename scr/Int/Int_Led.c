@@ -47,21 +47,18 @@ void Int_LED_OrderOnOff()
     {
 
         // 方向转换
-        if (s_temp_P2 == 0x00)
+        if (s_temp_P2 == 0x01)
         {
             flag = LEFT_DREC;
-            s_temp_P2 = 0x01;
-                    // 亮灯
-        P2 = ~s_temp_P2;
-        Com_Delay_1ms(500); // 500um
+            // s_temp_P2 = 0x01;
+            // // 亮灯
+            // P2 = ~s_temp_P2;
+            // Com_Delay_1ms(500); // 500um
         }
         else if (s_temp_P2 == 0xff)
         {
             flag = RIGHT_DERC;
         }
-
-
-
 
         // 移位
         if (flag == LEFT_DREC)
@@ -73,10 +70,7 @@ void Int_LED_OrderOnOff()
             s_temp_P2 >>= 1;
         }
 
-                P2 = ~s_temp_P2;
+        P2 = ~s_temp_P2;
         Com_Delay_1ms(500); // 500um
-
-
- 
     }
 }

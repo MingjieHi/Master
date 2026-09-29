@@ -29,7 +29,7 @@ void Int_DigitalTube_DisplaySingleNum(u8 pos, u8 numbercode)
     P2 &= 0xe3; //38译码器的对应引脚置为0
     P2 |= (pos <<= 2); // 完成位置的电平输出,让某个位置的数码管处于低电平。通过38译码器实现。
     P0 = numbercode; 
-    Com_Delay_1ms(10);
+    Com_Delay_1ms(1);
     P0 = 0x00;//置零
 }
 
@@ -40,7 +40,7 @@ u8 * Int_DigitalTube_GetDesplayNumCode(u32 number)
     u8 i = 7;
     u8 j = 0;
     // 数码管初始化，全部不显示,所有段都是低电平
-    for (j = 0; j < 7; j++)
+    for (j = 0; j < 8; j++)
     {
         s_digitaltube_numcode[i] = 0x00;
     }
@@ -104,16 +104,14 @@ u8 * Int_DigitalTube_DisplayAllNums(u32 All_Numbers){
     u8 *p; 
     u8 i = 0;
     p = Int_DigitalTube_GetDesplayNumCode(All_Numbers);
-    while (1)
-    {
-        for (i = 0; i < 7; i++)
+
+        for (i = 0; i < 8; i++)
         {
             {
-                Int_DigitalTube_DisplaySingleNum(i, s_digitaltube_numcode[i]);
+                Int_DigitalTube_DisplaySingleNum(7-i, s_digitaltube_numcode[i]);
             }
         }
     }
-}
 
 
 

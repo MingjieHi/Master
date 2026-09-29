@@ -63,10 +63,10 @@ void App_CalNumTube()
             }
         }
         // 获取number
-        Int_DigitalTube_GetDoubleNum(1, s_tempnum1);
-        Int_DigitalTube_GetDoubleNum(2, s_tempnum2);
-        Int_DigitalTube_GetDoubleNum(3, s_tempnum3);
-        ptr1 = Int_DigitalTube_GetDoubleNum(4, s_tempnum4); // 指针接住
+        Int_DigitalTube_GetDoubleNum(4, s_tempnum1);
+        Int_DigitalTube_GetDoubleNum(3, s_tempnum2);
+        Int_DigitalTube_GetDoubleNum(2, s_tempnum3);
+        ptr1 = Int_DigitalTube_GetDoubleNum(1, s_tempnum4); // 指针接住
         for (i = 0; i < 8; i++)
         {
             {

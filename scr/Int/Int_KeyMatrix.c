@@ -12,8 +12,8 @@ u8 Int_KeyMatrix_CheckKeyIsPreesed()
                                 9,10,11,12,
                                 13,14,15,16};
     // 0111 1111 0111 1111 > 1 0011 1111 | 1000 0000 > 1 0101 1111 | 1000 0000
-    static u8 s_rowsP1x[4] = {0x7f,0xbf,0xcf,0xdf};
-    P1 = 0x7f;
+    static u8 s_rowsP1x[4] = {0x7f,0xbf,0xdf,0xef};
+    // P1 = 0x7f;
     for (rows = 0; rows < 4; rows++)
     {
             P1 = s_rowsP1x[rows];
@@ -37,7 +37,7 @@ u8 Int_KeyMatrix_CheckKeyIsPreesed()
                 {
                     while (SWx2 == 0)
                         ;
-                    return s_pressed_button[rows][1];;
+                    return s_pressed_button[rows][1];
                 }
             }
 
@@ -49,7 +49,7 @@ u8 Int_KeyMatrix_CheckKeyIsPreesed()
                 {
                     while (SWx3 == 0)
                         ;
-                    return s_pressed_button[rows][2];;
+                    return s_pressed_button[rows][2];
                 }
 
             }
@@ -62,11 +62,11 @@ u8 Int_KeyMatrix_CheckKeyIsPreesed()
                 {
                     while (SWx4 == 0)
                         ;
-                    return s_pressed_button[rows][3];;
+                    return s_pressed_button[rows][3];
                 }
 
             }
             // P1 = (P1 >1) | 0x80;
     }
-        return 0;
+        return 99;
     }

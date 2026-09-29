@@ -9,19 +9,17 @@
 #define LED4 P23
 void main()
 {
+    u8 key = 0;
     while (1)
     {
 
-    // App_CalNumTube();}
-    //  App_Binprocess();
+    // App_CalNumTube();
+    // App_Binprocess();
     
 
-
-
-        // u8 key = 0;
-
-        // Key = Int_KeyMatrix_CheckKeyIsPreesed();
-        // Int_DigitalTube_DisplayAllNums(Key);
+        key = Int_KeyMatrix_CheckKeyIsPreesed();
+        Int_DigitalTube_DisplayAllNums(key);
+        // Com_Delay_1ms(100);
 
         // if (Int_Key_IsSW1Pressed() == 1)
         // {
@@ -40,7 +38,7 @@ void main()
         //     LED4 = ~LED4
         // }
 
-        Int_LED_OrderOnOff();
+        // Int_LED_OrderOnOff();
         // Int_Led_Flow();
         // Int_DigitalTube_DisplayAllNums(2256);
 }}
