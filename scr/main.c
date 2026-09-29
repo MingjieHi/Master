@@ -19,7 +19,7 @@ void main()
     
 
         temp = Int_KeyMatrix_CheckKeyIsPreesed();
-        if (temp != 0){
+        if (temp != 0){//不能一直刷新！！！！不按的时候刷新之前的
             key = temp;
         }
         Int_DigitalTube_DisplayAllNums(key);
