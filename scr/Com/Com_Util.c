@@ -1,19 +1,19 @@
 #include "Com_Util.h"
-void Com_Delay_1ms(count) //@11.0592MHz
+void Com_Delay_1ms(u32 count) //@11.0592MHz
 {
-    u8 data i, j;
     while (count > 0)
     {
-        count--;
+
+        u8 data i, j;
         _nop_();
-        _nop_();
-        _nop_();
-        i = 11;
-        j = 190;
+        i = 2;
+        j = 199;
         do
         {
             while (--j)
                 ;
         } while (--i);
+
+        count--;
     }
 }

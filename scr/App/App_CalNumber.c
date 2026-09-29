@@ -33,33 +33,41 @@ void App_CalNumTube()
         if (Int_Key_IsSW1Pressed())
         {
             s_tempnum1++;
-            if (s_numtotal == 99)
+            if (s_tempnum1 == 100)
             {
                 s_tempnum1 = 0;
-                if (s_tempnum1 == 100)
-                {
-                    s_tempnum1 = 0;
-                }
             }
         }
         else if (Int_Key_IsSW2Pressed())
         {
             s_tempnum2++;
+            if (s_tempnum2 == 100)
+            {
+                s_tempnum2 = 0;
+            }
         }
         else if (Int_Key_IsSW3Pressed())
         {
             s_tempnum3++;
+            if (s_tempnum3 == 100)
+            {
+                s_tempnum3 = 0;
+            }
         }
         else if (Int_Key_IsSW4Pressed())
         {
             s_tempnum4++;
+            if (s_tempnum4 == 100)
+            {
+                s_tempnum4 = 0;
+            }
         }
         // 获取number
         Int_DigitalTube_GetDoubleNum(1, s_tempnum1);
         Int_DigitalTube_GetDoubleNum(2, s_tempnum2);
         Int_DigitalTube_GetDoubleNum(3, s_tempnum3);
         ptr1 = Int_DigitalTube_GetDoubleNum(4, s_tempnum4); // 指针接住
-        for (i = 0; i < 7; i++)
+        for (i = 0; i < 8; i++)
         {
             {
                 Int_DigitalTube_DisplaySingleNum(i, ptr1[i]);
@@ -126,8 +134,10 @@ void App_CalNumTube_easy()
 
 void App_Binprocess()
 {
+    static u8 buf[8];
     u8 *ptr;
     u8 i = 0;
+    ptr = buf;
     // 1111 1111
     // c初始化为 11111111
     // butom1 是左移 右 +1 和清零
@@ -169,19 +179,17 @@ void App_Binprocess()
                 else
                 {
                     ptr[i] = s_digital_numcode[0];
-                
                 }
             }
         }
         if (Int_Key_IsSW4Pressed())
         {
 
-            for (i = 0; i < 7; i++)
+            for (i = 0; i < 8; i++)
             {
                 ptr[i] = s_digital_numcode[0];
             }
         }
         Int_DigitalTube_FlasNum(ptr);
     }
-
 }

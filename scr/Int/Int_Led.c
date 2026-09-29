@@ -35,6 +35,7 @@ void Int_Led_Flow()
 
 void Int_LED_OrderOnOff()
 {
+    flag = LEFT_DREC;
     // 从左到右
     // 0x01
     // 0000 0001 0x01
@@ -44,26 +45,38 @@ void Int_LED_OrderOnOff()
     s_temp_P2 = LED_OFF;
     while (1)
     {
-        if (flag == LEFT_DREC)
-        {
-            s_temp_P2 = (s_temp_P2 << 1) | RIGHT_LED;
-        } else if (flag == RIGHT_DERC)
-        {
-            s_temp_P2 >>= 1;
-        }
 
-        
+        // 方向转换
         if (s_temp_P2 == 0x00)
         {
             flag = LEFT_DREC;
             s_temp_P2 = 0x01;
+                    // 亮灯
+        P2 = ~s_temp_P2;
+        Com_Delay_1ms(500); // 500um
         }
         else if (s_temp_P2 == 0xff)
         {
             flag = RIGHT_DERC;
         }
-        P2 = ~s_temp_P2;
-        Com_Delay_1ms(100);
 
+
+
+
+        // 移位
+        if (flag == LEFT_DREC)
+        {
+            s_temp_P2 = (s_temp_P2 << 1) | RIGHT_LED;
+        }
+        else if (flag == RIGHT_DERC)
+        {
+            s_temp_P2 >>= 1;
+        }
+
+                P2 = ~s_temp_P2;
+        Com_Delay_1ms(500); // 500um
+
+
+ 
     }
 }

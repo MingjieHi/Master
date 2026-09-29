@@ -12,8 +12,9 @@ void main()
     while (1)
     {
 
-    App_CalNumTube();}
-    // App_Binprocess();}
+    // App_CalNumTube();}
+    //  App_Binprocess();
+    
 
 
 
@@ -39,7 +40,7 @@ void main()
         //     LED4 = ~LED4
         // }
 
-        // Int_LED_OrderOnOff();
+        Int_LED_OrderOnOff();
         // Int_Led_Flow();
         // Int_DigitalTube_DisplayAllNums(2256);
-}
+}}
