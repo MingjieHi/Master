@@ -2,12 +2,18 @@
 #ifndef __COM_UTIL_H__
 #define __COM_UTIL_H__
 
-
 #include <INTRINS.H>
 #include <STC89C5xRC.H>
 typedef unsigned char u8;
 typedef unsigned int u16;
 typedef unsigned long int u32;
+
+
+#define LED1 P20
+#define LED2 P21
+#define LED3 P22
+#define LED4 P23
+#define BUZZER P25
 
 void Com_Delay_1ms(u32 count);
 
