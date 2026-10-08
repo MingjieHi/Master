@@ -1,41 +1,59 @@
 // #include "Int/Int_Digital.h"
-#include "App/App_CalNumber.h"
-#include "Int/Int_Key.h"
-#include "Int/Int_KeyMatrix.h"
-#include "Int/Int_Led.h"
+// #include "App/App_CalNumber.h"
 #include "Com/Com_Util.h"
 #include "DIr/Dir_Timer0.h"
+#include "DIr/Dir_Uart.h"
+#include "STRING.H"
+// #include "Int/Int_Key.h"
+// #include "Int/Int_KeyMatrix.h"
+// #include "Int/Int_Led.h"
 #define LED1 P20
 #define LED2 P21
 #define LED3 P22
 #define LED4 P23
 #define BUZZER P25
 
+// void INT0_INIT()
+// {
+//     // 启用终端部
+//     EA = 1;
+//     EX0 = 1;
+//     // 设置触发方式
+//     IT0 = 1; // 下降沿
+// }
 
-void INT0_INIT(){
-    // 启用终端部
-    EA = 1;
-    EX0 = 1;
-    // 设置触发方式
-    IT0 = 1;//下降沿
-}
-
-
-void INT0_Handler() interrupt 0
-{
-    LED1 = ~LED1;
-}
-
+// void INT0_Handler() interrupt 0
+// {
+//     LED1 = ~LED1;
+// }
 
 void main()
 {
     // INT0_INIT();
-    Dir_Timer0_Init();
+    char CMD[10] = {0};
+    // Dir_Timer0_Init();
+    Dir_UART_Init();
     while (1)
     {
 
+        if (Dir_UART_RsvStr(CMD))
+        {
+            if (strcmp(CMD, "on") == 0) //判断字符是否相等;
+            {
+                P0 = 0x00;
+                Dir_UART_SendSTR("ok is on");
+            }
+            else if (strcmp(CMD, "off") == 0)
+            {
+                P0 = 0xff;
+                Dir_UART_SendSTR("ok is off");
+            }
+            else
+            {
+            }
+        }
     }
-    
+
     // u8 key = 0;
     // u8 temp = 0;
 
